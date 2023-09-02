@@ -1,11 +1,13 @@
 import { fetchCountries } from "../services/api";
 import { useState, useEffect } from "react";
+import { useDebounce } from "../hooks/useDebounce";
 
 function Autocompelete() {
   const [countries, setCountries] = useState<string[]>([]);
   const [search, setSearch] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const debouncedSearch = useDebounce(search, 500);
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -15,16 +17,16 @@ function Autocompelete() {
   }, []);
 
   useEffect(() => {
-    if (search.length > 0) {
-        const matches = countries.filter((country) => {
-            const regex = new RegExp(`^${search}`, "gi");
-            return country.match(regex);
-        });
-        setSuggestions(matches);
-    } else {
+    if (debouncedSearch.length === 0) {
       setSuggestions([]);
+      return;
     }
-  }, [search, countries]);
+
+    const suggestions = countries.filter((country) =>
+      country.toLowerCase().startsWith(debouncedSearch.toLowerCase())
+    );
+    setSuggestions(suggestions);
+  }, [debouncedSearch, countries]);
 
   const handleSearch = (value: string) => {
     setSearch(value);
@@ -54,7 +56,7 @@ function Autocompelete() {
             onClick={() => handleSelect(country)}
             className="suggestion"
           >
-            (country)
+            {country}
           </li>
         ))}
       </ul>
