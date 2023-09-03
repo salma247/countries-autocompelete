@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# React Countries search with TypeScript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Project Name](#project-name)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Screenshot](#screenshot)
+  - [Installation](#installation)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
 
-In the project directory, you can run:
+## Description
+This search app is built with React and TypeScript. It uses the [REST Countries API](https://restcountries.eu/) to fetch country data and display it to the user. The user can search for a country by name, and it displays autocomplete suggestions as the user types.
+The search component contain debounce function to limit the number of API calls made to the server. It also uses the [React Bootstrap](https://react-bootstrap.github.io/) library for styling.
 
-### `npm start`
+## Screenshot
+![Screenshot](./src/assets/screenshot.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+# Clone the repository
+git clone https://github.com/salma247/react-countries-autocompelete-ts.git
 
-### `npm test`
+# Change into the project directory
+cd your-project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Install dependencies
+npm install
 
-### `npm run build`
+# Start the development server
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
+- Search for a country by name
+- Display autocomplete suggestions as the user types
+- Display country name when a user selects a country from the autocomplete suggestions
+- Debounce hook to limit the number of API calls made to the server
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [REST Countries API](https://restcountries.eu/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
